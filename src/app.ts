@@ -6,6 +6,8 @@ import session from "express-session";
 import { getAllDatabases } from "./controllers/TestController";
 import { getAllSalesEmployees } from "./controllers/SalesEmployeeController";
 import { getDeliveryEmployeeForm, postDeliveryEmployeeForm } from "./controllers/DeliveryEmployeeController";
+import { allowRoles } from "./middleware/AuthMiddleware";
+import { UserRole } from "./models/JwtToken";
 
 const app = express();
 
@@ -33,7 +35,7 @@ app.listen(3000, () => {
 
 
 app.get('/', getAllDatabases);
-app.get('/salesEmployees', getAllSalesEmployees);
-app.get('/deliveryEmployeeForm', getDeliveryEmployeeForm);
-app.post('/deliveryEmployeeForm', postDeliveryEmployeeForm);
+app.get('/salesEmployees', allowRoles([UserRole.HR_EMPLOYEE]), getAllSalesEmployees);
+app.get('/deliveryEmployeeForm', allowRoles([UserRole.HR_EMPLOYEE]), getDeliveryEmployeeForm);
+app.post('/deliveryEmployeeForm', allowRoles([UserRole.HR_EMPLOYEE]), postDeliveryEmployeeForm);
 
