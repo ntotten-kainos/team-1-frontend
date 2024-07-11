@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <title>Delivery Employee List</title>
+    <body>
+        <h1>Delivery Employees</h1>
+        <table>
+            <tr style="border-bottom: 1px solid #ddd;">
+                <th style="padding:10px">Delivery Employee ID</th>
+                <th style="padding:10px">Name</th>
+                <th style="padding:10px">Salary</th>
+                <th style="padding:10px">Account No.</th>
+                <th style="padding:10px">National Insurance No.</th>
+            </tr>
+            {% for deliveryEmployee in deliveryEmployees %}
+                <tr >
+                    <td style="padding:10px">{{ deliveryEmployee.employeeID }}</td>
+                    <td style="padding:10px"> {{ deliveryEmployee.employeeName }}</td>
+                    <td style="padding:10px">£{{  deliveryEmployee.employeeSalary }}</td>
+                    <td style="padding:10px">{{ deliveryEmployee.employeeBankAccountNumber }}</td>
+                    <td style="padding:10px">{{ deliveryEmployee.employeeNationalInsuranceNumber }}</td>
+                </tr>
+                {% endfor %}
+        </table>
+    </body>
+</html>
