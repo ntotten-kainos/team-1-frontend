@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from "axios";
-import { DeliveryEmployeeRequest } from "../models/DeliveryEmployeeRequest";
+import { DeliveryEmployeeRequest } from "../../models/DeliveryEmployeeRequest";
 
 export const createDeliveryEmployee = async (deliveryEmployee: DeliveryEmployeeRequest): Promise<Number> => {
     try {
