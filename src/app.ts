@@ -2,9 +2,11 @@ import express from "express";
 import nunjucks from "nunjucks";
 import bodyParser from "body-parser";
 import session from "express-session";
-
 import { getAllDatabases } from "./controllers/TestController";
 import { getAllDeliveryEmployees, getDeliveryEmployeeForm, postDeliveryEmployeeForm } from "../controllers/DeliveryEmployeeController";
+import { getAllSalesEmployees } from "./controllers/SalesEmployeeController";
+import { getDeliveryEmployeeForm, postDeliveryEmployeeForm } from "../controllers/DeliveryEmployeeController";
+
 
 const app = express();
 
@@ -29,8 +31,9 @@ declare module "express-session" {
 app.listen(3000, () => {
     console.log('Server started on port 3000');
 });
-
 app.get('/deliveryEmployees', getAllDeliveryEmployees);
+app.get('/', getAllDatabases);
+app.get('/salesEmployees', getAllSalesEmployees);
 app.get('/deliveryEmployeeForm', getDeliveryEmployeeForm);
 app.post('/deliveryEmployeeForm', postDeliveryEmployeeForm);
 
