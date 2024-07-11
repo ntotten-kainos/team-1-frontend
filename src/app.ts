@@ -4,6 +4,8 @@ import bodyParser from "body-parser";
 import session from "express-session";
 
 import { getAllDatabases } from "./controllers/TestController";
+import { getCreateSalesEmpForm, postSalesEmpForm } from "./controllers/SalesController";
+import { getSalesEmployeeById } from "./services/SalesEmpService";
 
 const app = express();
 
@@ -30,3 +32,7 @@ app.listen(3000, () => {
 });
 
 app.get('/', getAllDatabases);
+
+app.get('/createSalesEmpForm', getCreateSalesEmpForm);
+app.post('/createSalesEmpForm', postSalesEmpForm);
+app.get('/salesEmp/:id', getSalesEmployeeById)
