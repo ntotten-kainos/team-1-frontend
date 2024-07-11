@@ -11,7 +11,7 @@
     },
     "include": [
         "src/**/*"
-    ],
+, "controllers", "models", "services"    ],
     "exclude": [
         "./node_modules/**/*",
         "./dist/**/*"
