@@ -5,7 +5,7 @@ import session from "express-session";
 
 import { getAllDatabases } from "./controllers/TestController";
 import { getAllSalesEmployees } from "./controllers/SalesEmployeeController";
-import { getDeliveryEmployeeForm, postDeliveryEmployeeForm } from "../controllers/DeliveryEmployeeController";
+import { getDeliveryEmployeeForm, postDeliveryEmployeeForm } from "./controllers/DeliveryEmployeeController";
 
 const app = express();
 
